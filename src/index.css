@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-paper: #f2f5f3;
+  --color-panel: #fcfdfc;
+
+  --color-ink-950: #0c1613;
+  --color-ink-900: #14231e;
+  --color-ink-700: #29403a;
+  --color-ink-500: #5b6f67;
+  --color-ink-400: #7e918a;
+  --color-ink-300: #a9b8b1;
+
+  --color-line: #d9e2dd;
+  --color-linedark: #c2cfc8;
+
+  --color-pine-950: #0a1512;
+  --color-pine-900: #0f211c;
+  --color-pine-800: #16332b;
+  --color-pine-700: #1c4a3e;
+
+  --color-moss-700: #0b6b52;
+  --color-moss-600: #0e8a64;
+  --color-moss-500: #17a277;
+  --color-moss-200: #b9e2d2;
+  --color-moss-100: #d9efe6;
+  --color-moss-50: #ecf6f1;
+
+  --color-acc-700: #15804a;
+  --color-acc-600: #1c9e58;
+  --color-acc-500: #28b468;
+  --color-acc-100: #d9f2e2;
+  --color-acc-50: #eefaf1;
+
+  --color-wat-700: #9c6710;
+  --color-wat-600: #c07f17;
+  --color-wat-500: #e09a24;
+  --color-wat-100: #f9edd2;
+  --color-wat-50: #fcf6e7;
+
+  --color-res-700: #a93636;
+  --color-res-600: #cf4848;
+  --color-res-500: #dd5c5c;
+  --color-res-100: #f8dede;
+  --color-res-50: #fbefef;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  background-image: radial-gradient(rgba(15, 33, 28, 0.06) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(14, 138, 100, 0.25);
+}
+
+/* ---------- motion ---------- */
+@keyframes rowIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes flashField {
+  0% {
+    background-color: rgba(23, 162, 119, 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes shakeX {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-3px); }
+  40%, 60% { transform: translateX(3px); }
+}
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@keyframes popNum {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes drawerIn {
+  from {
+    opacity: 0.4;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.anim-row-in { animation: rowIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-slide-down { animation: slideDown 0.38s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-flash { animation: flashField 0.9s ease-out both; }
+.anim-toast { animation: toastIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-shake { animation: shakeX 0.45s both; }
+.anim-pulse-soft { animation: pulseSoft 1.4s ease-in-out infinite; }
+.anim-pop { animation: popNum 0.3s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-drawer { animation: drawerIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade { animation: fadeIn 0.25s ease-out both; }
+
+/* ---------- form chrome ---------- */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--color-linedark);
+  border-radius: 8px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
